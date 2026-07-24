@@ -38,7 +38,7 @@ function StaticDrone({ label }: { label?: string }) {
         <div className="absolute h-[46vmin] w-[46vmin] rounded-full border border-accent/20" />
         <div className="absolute h-[32vmin] w-[32vmin] rounded-full border border-accent/30 [animation:spin_28s_linear_infinite]" />
         <div className="absolute h-[20vmin] w-[20vmin] rounded-full border border-dashed border-accent/40 [animation:spin_18s_linear_infinite_reverse]" />
-        <div className="h-24 w-24 rounded-2xl bg-accent/10 shadow-[0_0_80px_rgba(177,77,255,0.4)] backdrop-blur-sm" />
+        <div className="h-24 w-24 rounded-2xl bg-accent/10 shadow-[0_0_80px_rgba(46,224,196,0.4)] backdrop-blur-sm" />
         {label && (
           <span className="tech-label absolute -bottom-10 whitespace-nowrap opacity-60">
             {label}

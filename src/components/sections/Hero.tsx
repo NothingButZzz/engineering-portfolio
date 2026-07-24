@@ -25,7 +25,7 @@ export default function Hero() {
         className="absolute left-1/2 top-1/2 h-[70vmax] w-[70vmax] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle, rgba(177,77,255,0.16) 0%, rgba(177,77,255,0) 60%)",
+            "radial-gradient(circle, rgba(46,224,196,0.16) 0%, rgba(46,224,196,0) 60%)",
         }}
         aria-hidden
       />
@@ -63,7 +63,7 @@ export default function Hero() {
             <h1 className="font-sans font-bold leading-[0.95] tracking-tight text-[clamp(3rem,9vw,7.5rem)]">
               Building
               <br />
-              <span className="text-accent">Intelligent</span> Machines
+              <span className="text-gradient">Intelligent</span> Machines
             </h1>
           </RevealItem>
 

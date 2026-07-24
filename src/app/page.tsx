@@ -1,4 +1,5 @@
 import SmoothScroll from "@/components/animation/SmoothScroll";
+import Loader from "@/components/ui/Loader";
 import Navbar from "@/components/ui/Navbar";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import Atmosphere from "@/components/ui/Atmosphere";
@@ -14,6 +15,7 @@ import Contact from "@/components/sections/Contact";
 export default function Home() {
   return (
     <SmoothScroll>
+      <Loader />
       <Atmosphere />
       <Navbar />
       <ScrollProgress />

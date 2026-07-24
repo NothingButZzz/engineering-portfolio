@@ -113,8 +113,8 @@ export default function Drone({ startAt }: { startAt: number }) {
         <boxGeometry args={[0.8, 0.05, 0.04]} />
         <meshStandardMaterial
           ref={ledRef}
-          color="#b14dff"
-          emissive="#b14dff"
+          color="#2ee0c4"
+          emissive="#2ee0c4"
           emissiveIntensity={1.5}
           toneMapped={false}
         />

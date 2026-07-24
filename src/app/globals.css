@@ -8,17 +8,17 @@
 
 @theme {
   /* Backgrounds */
-  --color-bg: #0a0613; /* deep violet-black cinematic background */
-  --color-panel: #160c2e; /* cards / panels / section transitions */
-  --color-panel-2: #1e1240;
+  --color-bg: #0a0814; /* deep navy-violet cinematic background */
+  --color-panel: #14102a; /* cards / panels / section transitions */
+  --color-panel-2: #1b1638;
 
-  /* Accents */
-  --color-accent: #b14dff; /* electric violet (primary) */
-  --color-accent-2: #2fe0c6; /* bright teal (secondary) */
+  /* Accents — teal-forward duotone */
+  --color-accent: #2ee0c4; /* bright teal-green (primary) */
+  --color-accent-2: #a96bff; /* electric violet (secondary) */
 
   /* Accents as raw channels (for rgba glows) */
-  --accent-rgb: 177, 77, 255;
-  --accent-2-rgb: 47, 224, 198;
+  --accent-rgb: 46, 224, 196;
+  --accent-2-rgb: 169, 107, 255;
 
   /* Text */
   --color-fg: #ffffff;
@@ -168,6 +168,20 @@ body {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-accent);
+}
+
+/* Signature teal → violet gradient text (hero word, big numbers) */
+.text-gradient {
+  background: linear-gradient(
+    105deg,
+    var(--color-accent) 0%,
+    var(--color-accent) 35%,
+    var(--color-accent-2) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Accessibility: honor reduced motion */

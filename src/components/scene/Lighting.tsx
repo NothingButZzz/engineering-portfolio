@@ -20,21 +20,21 @@ export default function Lighting() {
         shadow-mapSize={[1024, 1024]}
       />
 
-      {/* Violet rim from behind */}
+      {/* Teal rim from behind */}
       <spotLight
         position={[-5, 3, -6]}
         angle={0.7}
         penumbra={1}
         intensity={40}
-        color="#b14dff"
+        color="#2ee0c4"
         distance={30}
       />
 
-      {/* Soft teal underglow */}
+      {/* Soft violet underglow (secondary accent) */}
       <pointLight
         position={[0, -3, 2]}
         intensity={8}
-        color="#2fe0c6"
+        color="#a96bff"
         distance={12}
       />
 

@@ -64,7 +64,7 @@ export default function DroneScene({ lowPower = false }: { lowPower?: boolean })
         <Environment resolution={256} background={false}>
           <Lightformer
             intensity={2.2}
-            color="#b14dff"
+            color="#2ee0c4"
             position={[0, 4, -6]}
             scale={[12, 6, 1]}
           />
@@ -76,7 +76,7 @@ export default function DroneScene({ lowPower = false }: { lowPower?: boolean })
           />
           <Lightformer
             intensity={0.8}
-            color="#2fe0c6"
+            color="#a96bff"
             position={[6, -2, 2]}
             scale={[6, 6, 1]}
           />
