@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Engineering Portfolio — Design System (spec 02 + 12)
+   Dark · Industrial · Futuristic · Engineering precision
+   ============================================================ */
+
+@theme {
+  /* Backgrounds */
+  --color-bg: #05070a; /* deepest cinematic background */
+  --color-panel: #0b1220; /* cards / panels / section transitions */
+  --color-panel-2: #0f1826;
+
+  /* Accents */
+  --color-accent: #00e5ff; /* technology cyan */
+  --color-accent-2: #7cf7d4; /* future green */
+
+  /* Text */
+  --color-fg: #ffffff;
+  --color-muted: #a8b2c1;
+  --color-faint: #667085;
+
+  /* Lines */
+  --color-line: rgba(255, 255, 255, 0.1);
+
+  /* Fonts */
+  --font-sans: var(--font-inter), "Noto Sans TC", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-tc: var(--font-noto-tc), var(--font-inter), sans-serif;
+
+  /* Layout */
+  --spacing-section: 8rem;
+
+  /* Motion — slow, controlled, mechanical */
+  --ease-mech: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smoothing */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 229, 255, 0.25);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.4);
+}
+
+/* ============================================================
+   Reusable utilities
+   ============================================================ */
+
+/* Max-width content container (spec 05: 1280 / 1440) */
+.container-max {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 1536px) {
+  .container-max {
+    max-width: 1440px;
+  }
+}
+
+/* Engineering interface glass panel (spec 02 §8) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+/* Blueprint / technical grid background (spec 02 §11) */
+.tech-grid {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Radial vignette to focus the center of a scene */
+.cinematic-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 45%,
+    rgba(5, 7, 10, 0.85) 100%
+  );
+}
+
+/* Primary button (spec 02 §10) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent);
+  color: #05070a;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  transition: transform 0.4s var(--ease-mech), box-shadow 0.4s var(--ease-mech);
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 32px rgba(0, 229, 255, 0.45);
+}
+
+/* Secondary / ghost button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-fg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  transition: border-color 0.4s var(--ease-mech),
+    background-color 0.4s var(--ease-mech);
+}
+.btn-ghost:hover {
+  border-color: rgba(0, 229, 255, 0.5);
+  background: rgba(0, 229, 255, 0.06);
+}
+
+/* Small mono technical label */
+.tech-label {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Accessibility: honor reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
