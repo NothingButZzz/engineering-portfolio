@@ -3,22 +3,27 @@
 /* ============================================================
    Engineering Portfolio — Design System (spec 02 + 12)
    Dark · Industrial · Futuristic · Engineering precision
+   Palette: electric violet × bright teal on deep violet-black
    ============================================================ */
 
 @theme {
   /* Backgrounds */
-  --color-bg: #05070a; /* deepest cinematic background */
-  --color-panel: #0b1220; /* cards / panels / section transitions */
-  --color-panel-2: #0f1826;
+  --color-bg: #0a0613; /* deep violet-black cinematic background */
+  --color-panel: #160c2e; /* cards / panels / section transitions */
+  --color-panel-2: #1e1240;
 
   /* Accents */
-  --color-accent: #00e5ff; /* technology cyan */
-  --color-accent-2: #7cf7d4; /* future green */
+  --color-accent: #b14dff; /* electric violet (primary) */
+  --color-accent-2: #2fe0c6; /* bright teal (secondary) */
+
+  /* Accents as raw channels (for rgba glows) */
+  --accent-rgb: 177, 77, 255;
+  --accent-2-rgb: 47, 224, 198;
 
   /* Text */
   --color-fg: #ffffff;
-  --color-muted: #a8b2c1;
-  --color-faint: #667085;
+  --color-muted: #b3a9c9;
+  --color-faint: #746a90;
 
   /* Lines */
   --color-line: rgba(255, 255, 255, 0.1);
@@ -58,7 +63,7 @@ body {
 
 /* Selection */
 ::selection {
-  background: rgba(0, 229, 255, 0.25);
+  background: rgba(var(--accent-rgb), 0.3);
   color: #fff;
 }
 
@@ -70,11 +75,11 @@ body {
   background: var(--color-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 229, 255, 0.2);
+  background: rgba(var(--accent-rgb), 0.25);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 229, 255, 0.4);
+  background: rgba(var(--accent-rgb), 0.45);
 }
 
 /* ============================================================
@@ -118,7 +123,7 @@ body {
     ellipse at center,
     transparent 0%,
     transparent 45%,
-    rgba(5, 7, 10, 0.85) 100%
+    rgba(10, 6, 19, 0.85) 100%
   );
 }
 
@@ -128,7 +133,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   background: var(--color-accent);
-  color: #05070a;
+  color: #0a0613;
   font-weight: 600;
   padding: 0.85rem 1.75rem;
   border-radius: 999px;
@@ -136,7 +141,7 @@ body {
 }
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 32px rgba(0, 229, 255, 0.45);
+  box-shadow: 0 0 32px rgba(var(--accent-rgb), 0.5);
 }
 
 /* Secondary / ghost button */
@@ -152,8 +157,8 @@ body {
     background-color 0.4s var(--ease-mech);
 }
 .btn-ghost:hover {
-  border-color: rgba(0, 229, 255, 0.5);
-  background: rgba(0, 229, 255, 0.06);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.08);
 }
 
 /* Small mono technical label */

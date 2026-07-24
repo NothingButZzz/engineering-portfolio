@@ -9,7 +9,7 @@
 export default function Lighting() {
   return (
     <>
-      <ambientLight intensity={0.25} color="#3a4a63" />
+      <ambientLight intensity={0.25} color="#4a3a63" />
 
       {/* Key light */}
       <directionalLight
@@ -20,26 +20,26 @@ export default function Lighting() {
         shadow-mapSize={[1024, 1024]}
       />
 
-      {/* Cyan rim from behind */}
+      {/* Violet rim from behind */}
       <spotLight
         position={[-5, 3, -6]}
         angle={0.7}
         penumbra={1}
         intensity={40}
-        color="#00e5ff"
+        color="#b14dff"
         distance={30}
       />
 
-      {/* Soft green underglow */}
+      {/* Soft teal underglow */}
       <pointLight
         position={[0, -3, 2]}
         intensity={8}
-        color="#7cf7d4"
+        color="#2fe0c6"
         distance={12}
       />
 
       {/* Cool fill */}
-      <pointLight position={[6, -1, 4]} intensity={6} color="#1a3a5a" />
+      <pointLight position={[6, -1, 4]} intensity={6} color="#2a1a5a" />
     </>
   );
 }

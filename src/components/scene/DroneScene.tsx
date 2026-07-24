@@ -36,10 +36,10 @@ export default function DroneScene({ lowPower = false }: { lowPower?: boolean })
         powerPreference: "high-performance",
       }}
       onCreated={({ gl }) => {
-        gl.setClearColor("#05070a", 0);
+        gl.setClearColor("#0a0613", 0);
       }}
     >
-      <fog attach="fog" args={["#05070a", 8, 20]} />
+      <fog attach="fog" args={["#0a0613", 8, 20]} />
 
       <Suspense fallback={null}>
         <CameraRig />
@@ -57,14 +57,14 @@ export default function DroneScene({ lowPower = false }: { lowPower?: boolean })
           scale={12}
           blur={2.6}
           far={4}
-          color="#00131a"
+          color="#150826"
         />
 
         {/* Self-contained reflections — no external HDR fetch */}
         <Environment resolution={256} background={false}>
           <Lightformer
             intensity={2.2}
-            color="#00e5ff"
+            color="#b14dff"
             position={[0, 4, -6]}
             scale={[12, 6, 1]}
           />
@@ -76,7 +76,7 @@ export default function DroneScene({ lowPower = false }: { lowPower?: boolean })
           />
           <Lightformer
             intensity={0.8}
-            color="#7cf7d4"
+            color="#2fe0c6"
             position={[6, -2, 2]}
             scale={[6, 6, 1]}
           />

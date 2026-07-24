@@ -57,7 +57,7 @@ export default function ParticleField() {
         const alpha = 0.15 + p.z * 0.5;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 229, 255, ${alpha})`;
+        ctx.fillStyle = `rgba(177, 77, 255, ${alpha})`;
         ctx.fill();
       }
       raf = requestAnimationFrame(render);

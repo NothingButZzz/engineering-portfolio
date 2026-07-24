@@ -10,7 +10,7 @@ export default function Contact() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-[60vmax] w-[60vmax] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,229,255,0.16) 0%, rgba(0,229,255,0) 60%)",
+            "radial-gradient(circle, rgba(177,77,255,0.18) 0%, rgba(177,77,255,0) 60%)",
         }}
         aria-hidden
       />

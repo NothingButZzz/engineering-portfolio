@@ -9,29 +9,29 @@ import { pointer } from "@/lib/pointer";
 
 /* Shared materials (created once) --------------------------------- */
 const bodyMat = new THREE.MeshStandardMaterial({
-  color: "#0d131c",
+  color: "#120d1e",
   metalness: 0.85,
   roughness: 0.3,
 });
 const armMat = new THREE.MeshStandardMaterial({
-  color: "#080c12",
+  color: "#0a0714",
   metalness: 0.7,
   roughness: 0.4,
 });
 const trimMat = new THREE.MeshStandardMaterial({
-  color: "#1a2230",
+  color: "#241a33",
   metalness: 0.9,
   roughness: 0.25,
 });
 const propMat = new THREE.MeshStandardMaterial({
-  color: "#05070a",
+  color: "#0a0613",
   metalness: 0.5,
   roughness: 0.5,
   transparent: true,
   opacity: 0.85,
 });
 const glassMat = new THREE.MeshStandardMaterial({
-  color: "#020407",
+  color: "#050308",
   metalness: 1,
   roughness: 0.05,
 });
@@ -113,8 +113,8 @@ export default function Drone({ startAt }: { startAt: number }) {
         <boxGeometry args={[0.8, 0.05, 0.04]} />
         <meshStandardMaterial
           ref={ledRef}
-          color="#00e5ff"
-          emissive="#00e5ff"
+          color="#b14dff"
+          emissive="#b14dff"
           emissiveIntensity={1.5}
           toneMapped={false}
         />
