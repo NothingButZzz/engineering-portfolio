@@ -53,9 +53,18 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a href="#contact" className="hidden sm:inline-flex btn-ghost !py-2 !px-5 text-sm">
-          Get in touch
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="https://nothingbutzzz.github.io/"
+            lang="zh-Hant"
+            className="rounded-md border border-white/15 px-2.5 py-1 text-xs text-muted transition-colors hover:border-accent/50 hover:text-fg"
+          >
+            中文
+          </a>
+          <a href="#contact" className="hidden sm:inline-flex btn-ghost !py-2 !px-5 text-sm">
+            Get in touch
+          </a>
+        </div>
       </nav>
     </header>
   );

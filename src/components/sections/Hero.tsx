@@ -69,9 +69,10 @@ export default function Hero() {
 
           <RevealItem>
             <p className="mt-8 max-w-xl text-[clamp(1.05rem,2vw,1.375rem)] text-muted">
-              I&apos;m {site.name}, a robotics engineer working across
-              autonomous systems, embedded hardware and applied AI — engineering
-              the machines of the future.
+              I&apos;m {site.name}, an Intelligent Automation Engineering
+              student at National Taipei University of Technology — building
+              competition robots, rocket payload hardware and computer-vision
+              tools.
             </p>
           </RevealItem>
 

@@ -1,6 +1,7 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { experiences } from "@/data/experience";
+import Journey from "@/components/ui/Journey";
 
 export default function Experience() {
   return (
@@ -35,6 +36,8 @@ export default function Experience() {
             </ScrollReveal>
           ))}
         </div>
+
+        <Journey />
       </div>
     </section>
   );

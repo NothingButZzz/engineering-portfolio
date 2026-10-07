@@ -22,20 +22,31 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yu Jen Lin — Robotics Engineer",
+  metadataBase: new URL("https://nothingbutzzz.github.io"),
+  title: "Yu-Jen (Kenny) Lin — Intelligent Automation Portfolio",
   description:
-    "Building intelligent machines for the future. Robotics, embedded systems, AI and automation portfolio of Yu Jen Lin.",
+    "Engineering portfolio of Yu-Jen (Kenny) Lin, an Intelligent Automation Engineering student at Taipei Tech — competition robots, rocket payload hardware and computer vision.",
+  alternates: {
+    canonical: "/engineering-portfolio/",
+    languages: { "zh-TW": "/" },
+  },
   keywords: [
-    "Robotics Engineer",
+    "Intelligent Automation",
+    "Robotics",
     "Embedded Systems",
     "Automation",
     "AI",
-    "Yu Jen Lin",
+    "Yu-Jen Lin",
+    "Kenny Lin",
+    "林榆蓁",
   ],
   openGraph: {
-    title: "Yu Jen Lin — Robotics Engineer",
-    description: "Building intelligent machines for the future.",
+    title: "Yu-Jen (Kenny) Lin — Intelligent Automation Portfolio",
+    description:
+      "Competition robots, rocket payload hardware and computer vision — Taipei Tech.",
+    url: "/engineering-portfolio/",
     type: "website",
+    images: [{ url: "/engineering-portfolio/og.jpg", width: 1200, height: 630 }],
   },
 };
 

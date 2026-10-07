@@ -3,6 +3,7 @@
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { seededRandom } from "@/lib/utils";
 
 /**
  * Slow floating dust/particles inside the 3D volume for depth (spec 04 §5).
@@ -12,11 +13,12 @@ export default function Particles({ count = 260 }: { count?: number }) {
   const ref = useRef<THREE.Points>(null);
 
   const positions = useMemo(() => {
+    const random = seededRandom(count);
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 18;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 12;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 12;
+      arr[i * 3] = (random() - 0.5) * 18;
+      arr[i * 3 + 1] = (random() - 0.5) * 12;
+      arr[i * 3 + 2] = (random() - 0.5) * 12;
     }
     return arr;
   }, [count]);

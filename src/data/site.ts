@@ -1,13 +1,13 @@
 /** Global site + identity configuration. */
 
 export const site = {
-  name: "Yu Jen Lin",
-  role: "Robotics Engineer",
+  name: "Yu-Jen (Kenny) Lin",
+  role: "Automation Student",
   tagline: "Building Intelligent Machines for the Future.",
   subroles: [
-    "Robotics Engineer",
-    "Automation Developer",
-    "AI / Embedded Systems",
+    "Intelligent Automation @ Taipei Tech",
+    "Robotics & Mechatronics",
+    "PCB & Hardware Integration",
   ],
   email: "kenny.lin.026@gmail.com",
   location: "Taiwan",

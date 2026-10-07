@@ -6,9 +6,9 @@ export const experiences: ExperienceEntry[] = [
     place: "Youth Overseas Dream Fund · MOE Youth Development Administration",
     location: "Netherlands",
     role: "Selected Participant",
-    period: "2026 — Present",
+    period: "Feb — Aug 2026",
     description:
-      "Selected for the 2026 overseas program (project GJ-9-1 “Smart Manufacturing Mobility”), visiting Philips and Eindhoven University of Technology to study engineering and innovation in practice.",
+      "Project GJ-9-1 “Smart Manufacturing Mobility”. Pre-departure training on collaborative robots and machine vision, then visits to the Philips Museum, High Tech Campus Eindhoven, Strijp-S, TU Delft, TU Eindhoven and the University of Amsterdam.",
   },
   {
     id: "tasa-rocket",
@@ -17,7 +17,7 @@ export const experiences: ExperienceEntry[] = [
     role: "Payload Lead",
     period: "2025 — Present",
     description:
-      "Leading the payload team into the finals: IMU attitude estimation, a LoRa telemetry link and an automated parachute-recovery mechanism.",
+      "Led the payload team into the finals. The payload combines IMU attitude estimation, LoRa telemetry and automated parachute recovery; my main work was the modular PCB that integrates the off-the-shelf modules.",
   },
   {
     id: "pbl-workshop",

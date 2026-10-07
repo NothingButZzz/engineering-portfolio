@@ -17,7 +17,7 @@ export default function Loader() {
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    const duration = reduced ? 500 : 2200;
+    const duration = reduced ? 300 : 900;
 
     // Lock scroll while the loader is on screen.
     const prevOverflow = document.body.style.overflow;
@@ -87,7 +87,7 @@ export default function Loader() {
 
         {/* bottom label */}
         <p className="mt-6 font-[family-name:var(--font-mono)] text-[0.65rem] uppercase tracking-[0.35em] text-faint">
-          Kenny <span className="text-accent-2">//</span> Dev — MMXXVI
+          Yu-Jen <span className="text-accent-2">{"//"}</span> Kenny Lin
         </p>
       </div>
     </div>

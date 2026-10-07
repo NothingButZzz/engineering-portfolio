@@ -1,6 +1,6 @@
 "use client";
 
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { lerp } from "@/lib/utils";
 import { pointer } from "@/lib/pointer";
 
@@ -10,9 +10,7 @@ import { pointer } from "@/lib/pointer";
  * without ever feeling like a game camera.
  */
 export default function CameraRig() {
-  const { camera } = useThree();
-
-  useFrame(() => {
+  useFrame(({ camera }) => {
     camera.position.x = lerp(camera.position.x, pointer.x * 1.2, 0.03);
     camera.position.y = lerp(camera.position.y, 0.4 + pointer.y * 0.6, 0.03);
     camera.lookAt(0, 0, 0);

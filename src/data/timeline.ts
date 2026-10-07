@@ -37,10 +37,10 @@ export const timeline: TimelineEntry[] = [
   {
     id: "rocket",
     year: "2025 — 2026",
-    title: "Rocket Avionics",
+    title: "Rocket Payload Hardware",
     tag: "Aerospace",
     description:
-      "Payload lead for the TASA 2026 Taiwan Cup Rocket Competition — telemetry and recovery systems that took the team to the finals.",
+      "Payload lead for the TASA 2026 Taiwan Cup Rocket Competition — designing the modular PCB behind the team's telemetry and recovery payload, all the way to the finals.",
   },
   {
     id: "international",
@@ -48,6 +48,6 @@ export const timeline: TimelineEntry[] = [
     title: "International Experience",
     tag: "Global",
     description:
-      "Selected for the Youth Overseas Dream Fund to visit Philips and TU Eindhoven in the Netherlands — building a global perspective on engineering.",
+      "Selected for the Youth Overseas Dream Fund: a summer in the Netherlands visiting Philips, High Tech Campus Eindhoven, TU Delft and TU Eindhoven.",
   },
 ];

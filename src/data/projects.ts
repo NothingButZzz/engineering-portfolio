@@ -4,14 +4,14 @@ import type { Project } from "@/types";
 export const projects: Project[] = [
   {
     id: "rocket",
-    title: "TASA Competition Rocket Payload",
+    title: "TASA Rocket Payload PCB",
     category: "Aerospace · Avionics",
     year: "2026",
     problem:
-      "A competition rocket needed reliable in-flight telemetry and an automated recovery system that could survive flight loads and hard landings.",
+      "The payload — IMU attitude estimation, LoRa telemetry and automated parachute recovery — was built from separate off-the-shelf modules that needed to work together as one system inside the rocket.",
     solution:
-      "As payload lead, built a dual-node avionics stack: a sensor node fusing IMU data for attitude estimation and a LoRa node streaming live telemetry to the ground, triggering parachute recovery automatically.",
-    technologies: ["Arduino", "IMU / Sensor Fusion", "LoRa", "Telemetry", "C++"],
+      "As payload lead, my main contribution was the circuit board: I integrated the off-the-shelf sensor and radio modules into a modular PCB and designed its wiring.",
+    technologies: ["PCB Design", "Modular Integration", "IMU", "LoRa", "Arduino"],
     result:
       "The team advanced to the finals of the TASA 2026 Taiwan Cup Rocket Competition; I also earned the TASA Junior Rocket Launch License.",
     accent: "cyan",

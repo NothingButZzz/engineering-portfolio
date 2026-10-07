@@ -21,7 +21,7 @@ export default function About() {
         <SectionHeader
           index="01"
           label="Engineering Identity"
-          title="An engineer who builds intelligent machines."
+          title="A student engineer who builds real machines."
         />
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[1.2fr_1fr]">
@@ -30,13 +30,13 @@ export default function About() {
               <p>
                 I study Intelligent Automation Engineering at National Taipei
                 University of Technology, working where software meets the
-                physical world — from IMU sensor fusion and LoRa telemetry to
-                motor control and computer vision.
+                physical world — from PCB hardware integration and embedded
+                control to computer vision.
               </p>
               <p>
                 My path runs from Arduino experiments to TDK and CR Cup
-                competition robots, payload lead on a TASA finalist rocket, and
-                AI vision applications. Each step made the next machine smarter,
+                competition robots, payload hardware for a TASA finalist rocket,
+                and AI vision applications. Each step made the next machine smarter,
                 more autonomous and more reliable.
               </p>
               <p className="text-fg">

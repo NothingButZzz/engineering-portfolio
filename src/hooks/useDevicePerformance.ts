@@ -1,7 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import type { DevicePerformance } from "@/types";
+
+const QUERIES = [
+  "(prefers-reduced-motion: reduce)",
+  "(pointer: coarse)",
+  "(max-width: 767px)",
+];
+
+function subscribe(onChange: () => void) {
+  const lists = QUERIES.map((q) => window.matchMedia(q));
+  lists.forEach((l) => l.addEventListener("change", onChange));
+  return () => lists.forEach((l) => l.removeEventListener("change", onChange));
+}
+
+function getSnapshot(): DevicePerformance {
+  const [prefersReduced, isCoarse, narrow] = QUERIES.map(
+    (q) => window.matchMedia(q).matches
+  );
+  const fewCores =
+    typeof navigator.hardwareConcurrency === "number" &&
+    navigator.hardwareConcurrency <= 4;
+
+  return prefersReduced || (isCoarse && narrow) || (narrow && fewCores)
+    ? "low"
+    : "high";
+}
 
 /**
  * Heuristic device-tier detection so the 3D scene can gracefully degrade
@@ -9,24 +34,5 @@ import type { DevicePerformance } from "@/types";
  * low core-count devices, "high" otherwise. Defaults to "high" during SSR.
  */
 export function useDevicePerformance(): DevicePerformance {
-  const [tier, setTier] = useState<DevicePerformance>("high");
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const isCoarse = window.matchMedia("(pointer: coarse)").matches;
-    const narrow = window.innerWidth < 768;
-    const fewCores =
-      typeof navigator.hardwareConcurrency === "number" &&
-      navigator.hardwareConcurrency <= 4;
-
-    if (prefersReduced || (isCoarse && narrow) || (narrow && fewCores)) {
-      setTier("low");
-    } else {
-      setTier("high");
-    }
-  }, []);
-
-  return tier;
+  return useSyncExternalStore(subscribe, getSnapshot, () => "high");
 }
