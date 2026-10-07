@@ -4,50 +4,50 @@ import type { TimelineEntry } from "@/types";
 export const timeline: TimelineEntry[] = [
   {
     id: "explore",
-    year: "Stage 01",
+    year: "2020 — 2022",
     title: "Early Engineering Exploration",
     tag: "Foundation",
     description:
-      "Started with programming, electronics and Arduino — discovering how software can command physical hardware.",
+      "Science fairs and inventions — a bronze medal at the KIDE Kaohsiung International Invention & Design Expo, and a winning award in Hsinchu County's Creative Thinking math contest.",
+  },
+  {
+    id: "ntut",
+    year: "2022",
+    title: "Intelligent Automation Engineering at Taipei Tech",
+    tag: "Education",
+    description:
+      "Joined the five-year junior college program in Intelligent Automation Engineering at National Taipei University of Technology, keeping a GPA between 3.83 and 4.0.",
   },
   {
     id: "robotics",
-    year: "Stage 02",
-    title: "Robotics Development",
+    year: "2023 — 2024",
+    title: "Robotics & Competitions",
     tag: "Mechatronics",
     description:
-      "Robotics club and automation projects built skills in mechanical design, control systems and integration.",
-  },
-  {
-    id: "competition",
-    year: "Stage 03",
-    title: "Competition Experience",
-    tag: "Applied Engineering",
-    description:
-      "From the CR Cup to rocket competition — rapid development, team collaboration, telemetry and recovery systems under pressure.",
+      "Third place at the 14th CR Cup robotics competition and a Selection Award at the 29th TDK Cup — rapid development, team collaboration and control systems under pressure.",
   },
   {
     id: "ai",
-    year: "Stage 04",
-    title: "AI & Intelligent Systems",
+    year: "2024 — 2025",
+    title: "AI, Vision & Professional Certification",
     tag: "Intelligence",
     description:
-      "Image processing and computer vision — moving from automation toward intelligent automation.",
+      "Computer vision with OpenCV, PID control simulation, an AI Junior Award 2024 semi-final entry, and CSWA → CSWP SolidWorks certification.",
+  },
+  {
+    id: "rocket",
+    year: "2025 — 2026",
+    title: "Rocket Avionics",
+    tag: "Aerospace",
+    description:
+      "Payload lead for the TASA 2026 Taiwan Cup Rocket Competition — telemetry and recovery systems that took the team to the finals.",
   },
   {
     id: "international",
-    year: "Stage 05",
+    year: "2026",
     title: "International Experience",
     tag: "Global",
     description:
-      "Overseas exposure and university visits — building a global perspective on engineering and technology.",
-  },
-  {
-    id: "future",
-    year: "Stage 06",
-    title: "Future Vision",
-    tag: "Next",
-    description:
-      "Exploring robotics, automation and intelligent manufacturing as a future engineer.",
+      "Selected for the Youth Overseas Dream Fund to visit Philips and TU Eindhoven in the Netherlands — building a global perspective on engineering.",
   },
 ];

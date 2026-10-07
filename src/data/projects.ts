@@ -4,58 +4,58 @@ import type { Project } from "@/types";
 export const projects: Project[] = [
   {
     id: "rocket",
-    title: "High-Altitude Rocket",
+    title: "TASA Competition Rocket Payload",
     category: "Aerospace · Avionics",
-    year: "2025",
+    year: "2026",
     problem:
-      "A competition rocket needed reliable in-flight telemetry and an automated recovery system that could survive high-altitude flight and hard landings.",
+      "A competition rocket needed reliable in-flight telemetry and an automated recovery system that could survive flight loads and hard landings.",
     solution:
-      "Built a dual-node avionics stack: a sensor node fusing IMU data for attitude estimation and a LoRa node streaming live telemetry to the ground, triggering the recovery sequence at apogee.",
+      "As payload lead, built a dual-node avionics stack: a sensor node fusing IMU data for attitude estimation and a LoRa node streaming live telemetry to the ground, triggering parachute recovery automatically.",
     technologies: ["Arduino", "IMU / Sensor Fusion", "LoRa", "Telemetry", "C++"],
     result:
-      "Delivered a working payload with live flight data and automated recovery — validated through ground and integration testing.",
+      "The team advanced to the finals of the TASA 2026 Taiwan Cup Rocket Competition; I also earned the TASA Junior Rocket Launch License.",
     accent: "cyan",
   },
   {
-    id: "robotics",
-    title: "Robotics Competition Robot",
+    id: "tdk",
+    title: "TDK Cup Competition Robot",
     category: "Mechatronics · Controls",
     year: "2024",
     problem:
-      "Design and build a competition robot under tight time constraints, balancing mechanical strength, weight and precise motion control.",
+      "Build a remotely operated competition robot under tight time constraints, with responsive and reliable control.",
     solution:
-      "Rapid-prototyped the mechanical structure, integrated a motor-control system, and iterated through mechanical failures to a reliable final drivetrain.",
-    technologies: ["Mechanical Design", "Motor Control", "Embedded C", "CAD"],
+      "Wrote the firmware and integrated the circuits — decoding remote-control signals and designing the real-time control logic that drives the robot.",
+    technologies: ["Embedded C", "Remote-Control Decoding", "Circuit Integration", "Motor Control"],
     result:
-      "Competed with a robot refined across multiple prototype iterations — turning early failures into a stronger final design.",
+      "Won the Selection Award at the 29th TDK Cup National Creative Design & Build Competition.",
     accent: "green",
   },
   {
     id: "opencv",
-    title: "OpenCV Vision Pipeline",
+    title: "Blackboard Note Enhancement",
     category: "Computer Vision · AI",
     year: "2025",
     problem:
-      "Extract clean, usable features from noisy real-world images for an automation task.",
+      "Photos of blackboard notes are noisy, unevenly lit and hard to read — and hard for text recognition to process.",
     solution:
-      "Engineered a processing pipeline — Gaussian blur, edge detection, thresholding and morphology — tuned to isolate the target features reliably.",
+      "Built an OpenCV pipeline — image pre-processing, edge detection, thresholding and morphology — to clean up the board and isolate the writing.",
     technologies: ["Python", "OpenCV", "NumPy", "Image Processing"],
     result:
-      "A repeatable before/after pipeline that cleanly enhances raw input into structured, machine-readable output.",
+      "Noticeably more readable notes and a higher text-recognition rate on the processed output.",
     accent: "cyan",
   },
   {
-    id: "embedded",
-    title: "Embedded Systems Lab",
-    category: "Embedded · Hardware",
-    year: "2024",
+    id: "diff-drive",
+    title: "Differential-Drive Robot Control",
+    category: "Controls · Simulation",
+    year: "2025",
     problem:
-      "Bridge software and physical hardware across a range of sensing and actuation tasks.",
+      "A differential-drive mobile robot drifts off its path without well-tuned closed-loop control.",
     solution:
-      "Built a series of Arduino-based systems integrating sensors, motor control and custom circuits — hardware, circuit, code and result as one loop.",
-    technologies: ["Arduino", "Sensor Integration", "Motor Control", "Circuit Design"],
+      "Modelled the robot's kinematics in Matlab/Simulink and designed PID controllers to track the target path.",
+    technologies: ["Matlab", "Simulink", "PID Control", "Kinematic Modelling"],
     result:
-      "A hands-on foundation in how firmware commands real machines — the groundwork for every later project.",
+      "Improved path-tracking accuracy and driving stability in simulation.",
     accent: "green",
   },
 ];

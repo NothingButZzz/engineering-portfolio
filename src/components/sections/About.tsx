@@ -2,16 +2,16 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 
 const stats = [
-  { value: "4+", label: "Engineering domains" },
-  { value: "10+", label: "Hands-on projects" },
-  { value: "3D", label: "Web · Robotics · AI" },
+  { value: "3.9", label: "Average GPA" },
+  { value: "5", label: "Certifications" },
+  { value: "785", label: "TOEIC score" },
 ];
 
 const focus = [
   "Autonomous & robotic systems",
   "Embedded hardware and firmware",
   "Applied AI and computer vision",
-  "Digital manufacturing mindset",
+  "CAD and digital manufacturing",
 ];
 
 export default function About() {
@@ -28,14 +28,16 @@ export default function About() {
           <ScrollReveal>
             <div className="space-y-6 text-[clamp(1.05rem,1.6vw,1.3rem)] leading-relaxed text-muted">
               <p>
-                I&apos;m a robotics engineer working where software meets the
+                I study Intelligent Automation Engineering at National Taipei
+                University of Technology, working where software meets the
                 physical world — from IMU sensor fusion and LoRa telemetry to
                 motor control and computer vision.
               </p>
               <p>
-                My path runs from Arduino experiments to competition robots,
-                rocket avionics and AI applications. Each step made the next
-                machine smarter, more autonomous and more reliable.
+                My path runs from Arduino experiments to TDK and CR Cup
+                competition robots, payload lead on a TASA finalist rocket, and
+                AI vision applications. Each step made the next machine smarter,
+                more autonomous and more reliable.
               </p>
               <p className="text-fg">
                 I build systems that sense, decide and act — and I&apos;m ready
