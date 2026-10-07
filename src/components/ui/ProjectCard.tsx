@@ -1,4 +1,5 @@
-import type { Project } from "@/types";
+import type { Project, ProjectMedia } from "@/types";
+import { asset } from "@/lib/utils";
 
 /** Engineering case-study card (spec 06 §9). */
 export default function ProjectCard({
@@ -49,6 +50,24 @@ export default function ProjectCard({
           </span>
         </div>
 
+        {project.images && <Gallery images={project.images} />}
+
+        {project.video && (
+          <figure className="mt-3">
+            <video
+              className="aspect-video w-full rounded-2xl border border-white/10 bg-bg"
+              src={project.video.src}
+              poster={project.images ? asset(project.images[0].src) : undefined}
+              controls
+              playsInline
+              preload="none"
+            />
+            <figcaption className="mt-2 text-xs text-faint">
+              {project.video.caption}
+            </figcaption>
+          </figure>
+        )}
+
         <dl className="mt-8 grid gap-6 sm:grid-cols-2">
           <CaseField term="Problem" desc={project.problem} />
           <CaseField term="Solution" desc={project.solution} />
@@ -93,5 +112,56 @@ function CaseField({ term, desc }: { term: string; desc: string }) {
       </dt>
       <dd className="text-sm leading-relaxed text-muted">{desc}</dd>
     </div>
+  );
+}
+
+/** Cover photo plus a strip of thumbnails; each opens the full image. */
+function Gallery({ images }: { images: ProjectMedia[] }) {
+  const [cover, ...rest] = images;
+  return (
+    <div className="mt-8">
+      <Shot media={cover} className="aspect-[16/10] !object-contain" />
+      {rest.length > 0 && (
+        <ul className="mt-3 grid grid-cols-3 gap-3">
+          {rest.map((m) => (
+            <li key={m.src}>
+              <Shot media={m} className="aspect-[4/3]" small />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function Shot({
+  media,
+  className,
+  small,
+}: {
+  media: ProjectMedia;
+  className: string;
+  small?: boolean;
+}) {
+  return (
+    <a
+      href={asset(media.src)}
+      target="_blank"
+      rel="noreferrer"
+      className="group/shot block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are pre-sized WebP */}
+      <img
+        src={asset(media.src)}
+        alt={media.caption}
+        loading="lazy"
+        className={`${className} w-full object-cover transition-transform duration-500 group-hover/shot:scale-105`}
+      />
+      <span
+        className={`block px-3 py-2 text-faint ${small ? "truncate text-[0.7rem]" : "text-xs"}`}
+      >
+        {media.caption}
+      </span>
+    </a>
   );
 }

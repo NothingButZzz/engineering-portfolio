@@ -20,6 +20,15 @@ export const experiences: ExperienceEntry[] = [
       "Led the payload team into the finals. The payload combines IMU attitude estimation, LoRa telemetry and automated parachute recovery; my main work was the modular PCB that integrates the off-the-shelf modules.",
   },
   {
+    id: "tdk30",
+    place: "30th TDK Cup National Creative Design & Build Competition",
+    location: "Taiwan",
+    role: "Mechanical Team",
+    period: "2026 — Ongoing",
+    description:
+      "Remote-control division, team B17. SolidWorks CAD, machining and assembly of a mecanum-drive robot, plus circuit design and the design report.",
+  },
+  {
     id: "pbl-workshop",
     place: "2024 PBL International Competition Workshop · Taipei Tech",
     location: "Taiwan",

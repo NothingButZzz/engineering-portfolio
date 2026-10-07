@@ -1,5 +1,11 @@
 /** Shared domain types for the portfolio. */
 
+export interface ProjectMedia {
+  /** Path under /public, without the base path */
+  src: string;
+  caption: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -12,6 +18,10 @@ export interface Project {
   result: string;
   /** Optional accent for the card, defaults to cyan */
   accent?: "cyan" | "green";
+  /** Photos shown on the card; the first one is the cover */
+  images?: ProjectMedia[];
+  /** Absolute URL of a demo video (hosted on the main site) */
+  video?: { src: string; caption: string };
 }
 
 export interface TimelineEntry {

@@ -11,7 +11,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Design & Manufacturing",
-    items: ["SolidWorks (CSWP)", "AutoCAD", "CNC Milling", "G-code"],
+    items: ["SolidWorks (CSWP)", "AutoCAD", "Mastercam", "CNC Milling", "3D Printing"],
   },
   {
     category: "AI & Software",
