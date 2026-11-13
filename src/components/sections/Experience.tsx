@@ -8,7 +8,7 @@ export default function Experience() {
     <section id="experience" className="relative py-32">
       <div className="container-max">
         <SectionHeader
-          index="05"
+          index="04"
           label="International Journey"
           title="Experience across teams and borders."
         />

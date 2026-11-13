@@ -37,6 +37,23 @@ export default function Journey() {
           preload="none"
         />
 
+        <p
+          id="journey-questions"
+          className="mt-6 scroll-mt-24 rounded-r-lg border-l-2 border-accent/50 bg-accent/5 px-4 py-3 text-sm leading-relaxed text-muted"
+        >
+          Questions about the Youth Overseas Dream Fund program? Feel free to
+          ask via this Instagram account:{" "}
+          <a
+            href="https://www.instagram.com/gj.kl.journey_9.1/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whitespace-nowrap rounded-sm font-medium text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          >
+            @gj.kl.journey_9.1
+          </a>
+          .
+        </p>
+
         <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {photos.map((photo) => (
             <li key={photo.src}>

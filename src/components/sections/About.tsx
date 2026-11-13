@@ -2,7 +2,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 
 const stats = [
-  { value: "3.9", label: "Average GPA" },
+  { value: "3.83–4.0", label: "Semester GPA" },
   { value: "5", label: "Certifications" },
   { value: "785", label: "TOEIC score" },
 ];
@@ -19,7 +19,7 @@ export default function About() {
     <section id="about" className="relative py-32">
       <div className="container-max">
         <SectionHeader
-          index="01"
+          index="02"
           label="Engineering Identity"
           title="A student engineer who builds real machines."
         />
@@ -62,10 +62,10 @@ export default function About() {
         </div>
 
         <ScrollReveal delay={0.15}>
-          <div className="mt-14 grid grid-cols-3 divide-x divide-white/10 border-y border-white/10">
+          <div className="mt-14 grid grid-cols-1 divide-y divide-white/10 border-y border-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {stats.map((s) => (
               <div key={s.label} className="px-4 py-8 text-center">
-                <div className="font-sans text-4xl font-bold text-accent sm:text-5xl">
+                <div className="font-sans text-2xl font-semibold text-accent sm:text-4xl">
                   {s.value}
                 </div>
                 <div className="mt-2 text-xs uppercase tracking-widest text-faint sm:text-sm">

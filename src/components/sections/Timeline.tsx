@@ -11,7 +11,7 @@ export default function Timeline() {
 
       <div className="container-max relative">
         <SectionHeader
-          index="02"
+          index="03"
           label="Journey"
           title="How a student becomes an engineer."
           lead="Every project built a stronger engineering foundation."

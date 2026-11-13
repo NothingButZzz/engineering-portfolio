@@ -7,7 +7,7 @@ export default function Skills() {
     <section id="skills" className="relative py-32">
       <div className="container-max">
         <SectionHeader
-          index="04"
+          index="05"
           label="Technical Capability"
           title="The engineering toolkit."
         />

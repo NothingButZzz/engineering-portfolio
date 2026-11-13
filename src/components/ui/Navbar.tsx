@@ -1,70 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { navLinks, site } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState } from "react";
 
-/**
- * Fixed navigation with a subtle glass panel that only appears
- * once the user scrolls past the hero (spec 02 §9 — glass limited to nav).
- */
+const LINKS = [
+  { href: "#projects", label: "Work", en: "01" },
+  { href: "#about", label: "About", en: "02" },
+  { href: "#timeline", label: "Journey", en: "03" },
+  { href: "#experience", label: "Experience", en: "04" },
+  { href: "#skills", label: "Skills", en: "05" },
+  { href: "#contact", label: "Contact", en: "06" },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
+  const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 8);
+      const sections = LINKS.map((link) => document.querySelector(link.href)).filter((node): node is Element => !!node);
+      const current = sections.filter((section) => section.getBoundingClientRect().top <= 180).at(-1);
+      setActive(current ? "#" + current.id : "");
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    const closeOnDesktop = () => { if (window.innerWidth >= 768) setOpen(false); onScroll(); };
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", closeOnDesktop);
+    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", closeOnDesktop); };
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpen(false); menuButton.current?.focus(); }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "backdrop-blur-md bg-[rgba(5,7,10,0.6)] border-b border-white/10"
-          : "bg-transparent border-b border-transparent"
-      )}
-    >
-      <nav className="container-max flex items-center justify-between h-16">
-        <a
-          href="#top"
-          className="flex items-center gap-2.5 group"
-          aria-label={`${site.name} — home`}
-        >
-          <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_var(--color-accent)]" />
-          <span className="font-semibold tracking-tight">
-            {site.name}
-            <span className="text-faint font-normal"> / {site.role}</span>
-          </span>
-        </a>
-
-        <ul className="hidden md:flex items-center gap-8 text-sm text-muted">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="relative transition-colors hover:text-fg after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-3">
-          <a
-            href="https://nothingbutzzz.github.io/"
-            lang="zh-Hant"
-            className="rounded-md border border-white/15 px-2.5 py-1 text-xs text-muted transition-colors hover:border-accent/50 hover:text-fg"
-          >
-            中文
-          </a>
-          <a href="#contact" className="hidden sm:inline-flex btn-ghost !py-2 !px-5 text-sm">
-            Get in touch
-          </a>
-        </div>
+    <header className={"site-header " + (scrolled || open ? "is-scrolled" : "")}>
+      <nav className="site-container nav-inner" aria-label="Main navigation">
+        <a href="#top" className="site-logo" onClick={() => setOpen(false)}>K<span className="text-accent">.</span><span className="mono">KENNY LIN</span></a>
+        <ul className="desktop-nav">{LINKS.map((link) => <li key={link.href}><a href={link.href} aria-current={active === link.href ? "location" : undefined}><span>{link.label}</span><span className="mono">{link.en}</span></a></li>)}</ul>
+        <div className="nav-actions"><a href={process.env.NODE_ENV === "development" ? "http://localhost:3000/" : "https://nothingbutzzz.github.io/"} lang="zh-Hant" className="language-link" aria-label="Chinese portfolio">中文 <span aria-hidden="true">↗</span></a><button ref={menuButton} type="button" className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close menu" : "Open menu"}>{open ? "Close ×" : "Menu ☰"}</button></div>
+      </nav>
+      <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation" hidden={!open}>
+        {LINKS.map((link) => <a key={link.href} href={link.href} aria-current={active === link.href ? "location" : undefined} onClick={() => setOpen(false)}><span>{link.label}</span><span className="mono">{link.en} ↗</span></a>)}
       </nav>
     </header>
   );

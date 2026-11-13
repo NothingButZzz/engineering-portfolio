@@ -20,7 +20,7 @@ export default function SectionHeader({
           <span className="h-px w-8 bg-accent/50" />
           {label}
         </p>
-        <h2 className="font-sans font-bold tracking-tight text-[clamp(2.25rem,5vw,4rem)] leading-[1.05]">
+        <h2 className="section-heading">
           {title}
         </h2>
         {lead && (

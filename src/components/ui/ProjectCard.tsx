@@ -1,167 +1,42 @@
-import type { Project, ProjectMedia } from "@/types";
+import Image from "next/image";
+import type { Project } from "@/types";
 import { asset } from "@/lib/utils";
+import MediaGallery from "./MediaGallery";
+import ImageComparison from "./ImageComparison";
+import ProjectArtwork from "./ProjectArtwork";
 
-/** Engineering case-study card (spec 06 §9). */
-export default function ProjectCard({
-  project,
-  index,
-}: {
-  project: Project;
-  index: number;
-}) {
-  const accent =
-    project.accent === "green" ? "var(--color-accent-2)" : "var(--color-accent)";
+const presentation: Record<string, { summary: string; role: string }> = {
+  tdk30: { summary: "One robot, four tasks. A mecanum chassis, lift and modular grippers within a 45 × 45 cm starting footprint.", role: "Mechanical team: CAD, machining and assembly; contributions to circuit design and the design report." },
+  rocket: { summary: "A modular PCB bringing the team's sensing and radio modules together in one payload system.", role: "Payload lead, responsible for PCB wiring and off-the-shelf module integration." },
+  opencv: { summary: "Recovering readable chalk strokes from photos affected by glare, uneven light and chalk dust.", role: "Course project with a classmate: image-processing pipeline and method comparisons." },
+  cnc: { summary: "A complete workflow from Mastercam design to a finished, engraved acrylic part.", role: "Design, tool setup, work coordinates and machining, with NC-code support from instructors." },
+  "diff-drive": { summary: "A kinematic model and PID controllers for differential-drive robot path tracking.", role: "Matlab / Simulink control simulation as a course project." },
+};
 
+export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const content = presentation[project.id];
+  const cover = project.id === "tdk30" ? project.images?.[1] : project.images?.[0];
   return (
-    <article
-      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-panel/60 p-8 transition-all duration-500 hover:border-white/20 sm:p-10"
-      style={{ transitionTimingFunction: "var(--ease-mech)" }}
-    >
-      {/* hover glow */}
-      <div
-        className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-40"
-        style={{ background: accent }}
-        aria-hidden
-      />
-
-      {/* large engineering index numeral */}
-      <span
-        className="pointer-events-none absolute right-6 top-4 select-none font-[family-name:var(--font-mono)] text-6xl font-bold leading-none text-white/[0.04] sm:text-7xl"
-        aria-hidden
-      >
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
-      <div className="relative">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p
-              className="text-xs font-medium uppercase tracking-[0.2em]"
-              style={{ color: accent }}
-            >
-              {project.category}
-            </p>
-            <h3 className="mt-3 text-2xl font-bold sm:text-3xl">
-              {project.title}
-            </h3>
-          </div>
-          <span className="shrink-0 font-[family-name:var(--font-mono)] text-sm text-faint">
-            {project.year}
-          </span>
-        </div>
-
-        {project.images && <Gallery images={project.images} />}
-
-        {project.video && (
-          <figure className="mt-3">
-            <video
-              className="aspect-video w-full rounded-2xl border border-white/10 bg-bg"
-              src={project.video.src}
-              poster={project.images ? asset(project.images[0].src) : undefined}
-              controls
-              playsInline
-              preload="none"
-            />
-            <figcaption className="mt-2 text-xs text-faint">
-              {project.video.caption}
-            </figcaption>
-          </figure>
-        )}
-
-        <dl className="mt-8 grid gap-6 sm:grid-cols-2">
-          <CaseField term="Problem" desc={project.problem} />
-          <CaseField term="Solution" desc={project.solution} />
-        </dl>
-
-        <div className="mt-8">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-faint">
-            Technology
-          </p>
-          <ul className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <li
-                key={tech}
-                className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-xs text-muted"
-              >
-                {tech}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-8 flex items-start gap-3 border-t border-white/10 pt-6">
-          <span
-            className="mt-1 h-2 w-2 shrink-0 rounded-full"
-            style={{ background: accent, boxShadow: `0 0 12px ${accent}` }}
-          />
-          <p className="text-sm text-muted">
-            <span className="text-fg">Result — </span>
-            {project.result}
-          </p>
-        </div>
+    <article id={"project-" + project.id} className={"project-card " + (project.id === "tdk30" ? "project-featured" : "")}>
+      <div className="project-visual">
+        {project.id === "opencv" ? <ImageComparison /> : cover ? <div className="project-cover"><Image src={asset(cover.src)} alt={cover.caption} fill sizes="(max-width: 767px) 90vw, 45vw" className="object-contain" /><span className="cover-label mono">{project.id === "tdk30" ? "TDK 30 / TEAM B17" : "MASTERCAM → CNC"}</span></div> : <><ProjectArtwork type={project.id === "rocket" ? "payload" : "control"} /><p className="art-caption">Concept illustration · {project.id === "rocket" ? "not PCB wiring" : "not measured data"}</p></>}
       </div>
+      <div className="project-content">
+        <p className="eyebrow">{String(index + 1).padStart(2, "0")} / {project.category}</p>
+        <h3>{project.title}</h3>
+        <p className="project-meta mono">{project.year}</p>
+        <p className="project-summary">{content.summary}</p>
+        <dl className="project-evidence"><div><dt>MY ROLE</dt><dd>{content.role}</dd></div><div><dt>OUTCOME</dt><dd>{project.result}</dd></div></dl>
+        <ul className="tech-tags" aria-label="Technologies used">{project.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul>
+      </div>
+      <details className="project-details">
+        <summary><span>Explore project details{project.images ? " & media" : ""}</span><span className="details-icon" aria-hidden="true">+</span></summary>
+        <div className="details-body">
+          <dl className="grid gap-6 sm:grid-cols-2"><div><dt className="eyebrow mb-2">THE PROBLEM</dt><dd className="text-sm leading-7 text-muted">{project.problem}</dd></div><div><dt className="eyebrow mb-2">THE APPROACH</dt><dd className="text-sm leading-7 text-muted">{project.solution}</dd></div></dl>
+          {project.images && <MediaGallery images={project.images} title={project.title} />}
+          {project.video && <figure className="mt-6"><video src={project.video.src} poster={cover ? asset(cover.src) : undefined} controls playsInline preload="none" className="aspect-video w-full rounded-lg border border-line bg-background" /><figcaption className="mt-2 text-xs text-muted">{project.video.caption}</figcaption></figure>}
+        </div>
+      </details>
     </article>
-  );
-}
-
-function CaseField({ term, desc }: { term: string; desc: string }) {
-  return (
-    <div>
-      <dt className="mb-2 text-xs uppercase tracking-[0.2em] text-faint">
-        {term}
-      </dt>
-      <dd className="text-sm leading-relaxed text-muted">{desc}</dd>
-    </div>
-  );
-}
-
-/** Cover photo plus a strip of thumbnails; each opens the full image. */
-function Gallery({ images }: { images: ProjectMedia[] }) {
-  const [cover, ...rest] = images;
-  return (
-    <div className="mt-8">
-      <Shot media={cover} className="aspect-[16/10] !object-contain" />
-      {rest.length > 0 && (
-        <ul className="mt-3 grid grid-cols-3 gap-3">
-          {rest.map((m) => (
-            <li key={m.src}>
-              <Shot media={m} className="aspect-[4/3]" small />
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
-function Shot({
-  media,
-  className,
-  small,
-}: {
-  media: ProjectMedia;
-  className: string;
-  small?: boolean;
-}) {
-  return (
-    <a
-      href={asset(media.src)}
-      target="_blank"
-      rel="noreferrer"
-      className="group/shot block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are pre-sized WebP */}
-      <img
-        src={asset(media.src)}
-        alt={media.caption}
-        loading="lazy"
-        className={`${className} w-full object-cover transition-transform duration-500 group-hover/shot:scale-105`}
-      />
-      <span
-        className={`block px-3 py-2 text-faint ${small ? "truncate text-[0.7rem]" : "text-xs"}`}
-      >
-        {media.caption}
-      </span>
-    </a>
   );
 }

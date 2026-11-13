@@ -1,9 +1,5 @@
-import SmoothScroll from "@/components/animation/SmoothScroll";
-import Loader from "@/components/ui/Loader";
 import Navbar from "@/components/ui/Navbar";
 import ScrollProgress from "@/components/ui/ScrollProgress";
-import Atmosphere from "@/components/ui/Atmosphere";
-import TechDivider from "@/components/ui/TechDivider";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Timeline from "@/components/sections/Timeline";
@@ -14,26 +10,25 @@ import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <SmoothScroll>
-      <Loader />
-      <Atmosphere />
+    <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Navbar />
       <ScrollProgress />
-      <main>
+      <main id="main-content">
         <Hero />
-        <TechDivider label="// 01 · IDENTITY" />
-        <About />
-        <TechDivider label="// 02 · JOURNEY" />
-        <Timeline />
-        <TechDivider label="// 03 · SHOWCASE" />
+        <div className="site-container credentials-strip" aria-label="Qualifications and experience">
+          <div><strong>3.83–4.0</strong><span>GPA across semesters</span></div>
+          <div><strong>CSWP</strong><span>SOLIDWORKS Professional</span></div>
+          <div><strong>TASA 2026</strong><span>Finalist team · Payload lead</span></div>
+          <div><strong>Netherlands</strong><span>Overseas learning · 2026</span></div>
+        </div>
         <Projects />
-        <TechDivider label="// 04 · CAPABILITY" />
-        <Skills />
-        <TechDivider label="// 05 · EXPERIENCE" />
+        <About />
+        <Timeline />
         <Experience />
-        <TechDivider label="// 06 · CONTACT" />
+        <Skills />
         <Contact />
       </main>
-    </SmoothScroll>
+    </>
   );
 }
